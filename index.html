@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Swim Meet Manager</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<header class="hero">
+  <div class="wrap">
+    <div class="brand">🏊 <span>Swim Meet Manager</span></div>
+    <div class="meet"><input id="mn" placeholder="Meet name" oninput="setMeet()"><input id="md" type="date" oninput="setMeet()"></div>
+    <div class="stats" id="stats"></div>
+  </div>
+  <svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path d="M0 30 Q150 0 300 30 T600 30 T900 30 T1200 30 V60 H0Z" fill="var(--bg)"/></svg>
+</header>
+<main class="wrap">
+  <nav class="tabs" id="tabs"></nav>
+  <div class="bar card" id="bar">
+    <label>Show <select id="gf" onchange="setF()"><option value="A">All</option><option value="M">♂ Men</option><option value="W">♀ Women</option></select></label>
+    <label>Stroke <select id="sf" onchange="setF()"><option value="">All strokes</option><option value="0">Freestyle</option><option value="1">Butterfly</option><option value="2">Backstroke</option><option value="3">Breaststroke</option><option value="4">Individual Medley</option><option value="5">Medley Relay</option><option value="6">Freestyle Relay</option></select></label>
+    <label>Event <select id="ev" onchange="render()"></select></label>
+    <label>Lanes <select id="ln" onchange="render()"><option value="8">8 lanes</option><option value="6">6 lanes</option></select></label>
+    <span class="grow"></span>
+    <button class="s" onclick="exportJSON()">⬇ Backup</button>
+    <label class="btn s">⬆ Restore<input type="file" accept=".json" hidden onchange="importJSON(this)"></label>
+  </div>
+  <section id="v"></section>
+</main>
+<div id="print"></div>
+<script src="script.js"></script>
+</body></html>
